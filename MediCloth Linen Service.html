@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///C:/Users/UmerS/Downloads/MediCloth_Website_4.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MediCloth Linen Service</title>
+<link href="./MediCloth Linen Service_files/css2" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gd:  #1B4332;
+  --gm:  #2D6A4F;
+  --ga:  #40916C;
+  --gl:  #74C69D;
+  --gp:  #D8F3DC;
+  --cream: #F8F6F0;
+  --dark:  #1A2422;
+  --gray:  #4A5A55;
+  --white: #FFFFFF;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'DM Sans', system-ui, sans-serif;
+}
+
+body { font-family: var(--sans); color: var(--dark); background: var(--white); line-height: 1.6; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--gd);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 48px; height: 64px;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 12px; cursor: pointer;
+}
+.nav-logo-circle {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--gl); display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: var(--gd); flex-shrink: 0;
+}
+.nav-logo-text { font-family: var(--serif); font-size: 15px; font-weight: 600; color: var(--white); }
+.nav-links { display: flex; gap: 8px; }
+.nav-link {
+  font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.7);
+  padding: 8px 16px; border-radius: 6px; cursor: pointer;
+  border: none; background: transparent;
+  transition: color 0.2s, background 0.2s;
+}
+.nav-link:hover, .nav-link.active { color: var(--white); background: rgba(255,255,255,0.1); }
+.nav-cta {
+  font-size: 12px; font-weight: 600; letter-spacing: 0.05em;
+  color: var(--gd); background: var(--gl);
+  padding: 8px 20px; border-radius: 6px; cursor: pointer;
+  border: none; transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.88; }
+
+/* ── PAGES ── */
+.page { display: none; padding-top: 64px; min-height: 100vh; }
+.page.active { display: block; }
+
+/* ══════════════ HOME PAGE ══════════════ */
+.hero {
+  background: var(--gd);
+  padding: 100px 48px 80px;
+  position: relative; overflow: hidden;
+}
+.hero-bg-scan {
+  position: absolute;
+  right: -20px; top: 50%;
+  transform: translateY(-50%);
+  width: 520px; height: 520px;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero::before {
+  content: ''; position: absolute; top: -80px; right: -80px;
+  width: 500px; height: 500px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -40px; left: 20%;
+  width: 300px; height: 300px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-eyebrow {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gl); margin-bottom: 20px;
+}
+.hero-headline {
+  font-family: var(--serif); font-size: clamp(36px, 5vw, 58px);
+  font-weight: 700; color: var(--white); line-height: 1.1;
+  max-width: 680px; margin-bottom: 24px;
+}
+.hero-headline span { color: var(--gl); }
+.hero-sub {
+  font-size: 16px; color: rgba(255,255,255,0.65); line-height: 1.7;
+  max-width: 520px; margin-bottom: 40px;
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.05em; padding: 14px 32px; border-radius: 7px;
+  background: var(--gl); color: var(--gd); border: none; cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn-primary:hover { opacity: 0.88; }
+.btn-outline {
+  font-family: var(--sans); font-size: 13px; font-weight: 500;
+  padding: 14px 32px; border-radius: 7px;
+  background: transparent; color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3); cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover { border-color: var(--gl); background: rgba(116,198,157,0.08); }
+.hero-stats {
+  display: flex; gap: 48px; margin-top: 64px; padding-top: 48px;
+  border-top: 1px solid rgba(255,255,255,0.1); flex-wrap: wrap;
+}
+.hero-stat-n {
+  font-family: var(--serif); font-size: 38px; font-weight: 700;
+  color: var(--gl); line-height: 1;
+}
+.hero-stat-l { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 4px; }
+
+/* STRIP */
+.strip {
+  background: var(--gl); padding: 16px 48px;
+  display: flex; align-items: center; justify-content: center; gap: 48px;
+  flex-wrap: wrap;
+}
+.strip-item { font-size: 12px; font-weight: 600; color: var(--gd); letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px; }
+.strip-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--gd); opacity: 0.5; }
+
+/* SECTIONS */
+.section { padding: 80px 48px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.section-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ga); margin-bottom: 12px; }
+.section-title { font-family: var(--serif); font-size: clamp(26px, 3.5vw, 40px); font-weight: 700; color: var(--gd); line-height: 1.15; margin-bottom: 16px; }
+.section-sub { font-size: 15px; color: var(--gray); line-height: 1.7; max-width: 560px; margin-bottom: 48px; }
+
+/* SERVICES GRID */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.service-card {
+  background: var(--cream); border-radius: 12px; padding: 28px;
+  border: 1px solid rgba(27,67,50,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.service-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(27,67,50,0.1); }
+.service-icon { width: 44px; height: 44px; border-radius: 10px; background: var(--gd); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 16px; }
+.service-title { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--gd); margin-bottom: 8px; }
+.service-desc { font-size: 13px; color: var(--gray); line-height: 1.65; }
+
+/* WHY SECTION */
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+.why-list { display: flex; flex-direction: column; gap: 20px; }
+.why-item { display: flex; gap: 16px; align-items: flex-start; }
+.why-num { width: 32px; height: 32px; border-radius: 50%; background: var(--gp); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: var(--gd); flex-shrink: 0; }
+.why-title { font-size: 15px; font-weight: 600; color: var(--gd); margin-bottom: 4px; }
+.why-desc  { font-size: 13px; color: var(--gray); line-height: 1.6; }
+.why-visual {
+  background: var(--gd); border-radius: 16px; padding: 40px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.why-stat-card { background: rgba(255,255,255,0.07); border-radius: 10px; padding: 20px 24px; }
+.why-stat-n { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--gl); }
+.why-stat-l { font-size: 12px; color: rgba(255,255,255,0.6); margin-top: 4px; }
+
+/* OFFERS */
+.offers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+.offer-card {
+  border-radius: 12px; padding: 28px;
+  border: 1px solid rgba(27,67,50,0.1);
+  background: var(--white);
+  transition: box-shadow 0.2s;
+}
+.offer-card:hover { box-shadow: 0 8px 24px rgba(27,67,50,0.1); }
+.offer-card.featured { background: var(--gd); border-color: transparent; }
+.offer-badge { display: inline-block; font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; background: var(--gp); color: var(--gd); border-radius: 4px; padding: 3px 8px; margin-bottom: 14px; }
+.offer-card.featured .offer-badge { background: var(--gl); }
+.offer-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--gd); margin-bottom: 10px; }
+.offer-card.featured .offer-title { color: var(--white); }
+.offer-desc  { font-size: 13px; color: var(--gray); line-height: 1.65; }
+.offer-card.featured .offer-desc { color: rgba(255,255,255,0.7); }
+
+/* CTA BAND */
+.cta-band {
+  background: var(--gd); padding: 72px 48px; text-align: center;
+}
+.cta-band-title { font-family: var(--serif); font-size: clamp(28px, 4vw, 42px); font-weight: 700; color: var(--white); margin-bottom: 16px; }
+.cta-band-sub { font-size: 15px; color: rgba(255,255,255,0.65); margin-bottom: 36px; }
+.cta-band-phone { font-family: var(--serif); font-size: 32px; font-weight: 700; color: var(--gl); margin-bottom: 8px; }
+.cta-band-email { font-size: 14px; color: rgba(255,255,255,0.5); }
+
+/* ══════════════ ABOUT PAGE ══════════════ */
+.about-hero { background: var(--gd); padding: 80px 48px; }
+.about-hero-inner { max-width: 1100px; margin: 0 auto; }
+.page-hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gl); margin-bottom: 16px; }
+.page-hero-title { font-family: var(--serif); font-size: clamp(32px, 4vw, 50px); font-weight: 700; color: var(--white); line-height: 1.15; max-width: 620px; }
+
+.mission-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.mission-body { font-size: 15px; color: var(--gray); line-height: 1.8; }
+.mission-body p { margin-bottom: 18px; }
+.value-list { display: flex; flex-direction: column; gap: 16px; }
+.value-item { display: flex; gap: 14px; align-items: flex-start; padding: 18px; background: var(--cream); border-radius: 10px; border-left: 3px solid var(--ga); }
+.value-icon { font-size: 22px; flex-shrink: 0; }
+.value-title { font-size: 14px; font-weight: 600; color: var(--gd); margin-bottom: 3px; }
+.value-desc  { font-size: 12.5px; color: var(--gray); line-height: 1.55; }
+
+.team-card {
+  background: var(--gd); border-radius: 14px; padding: 36px;
+  display: flex; gap: 28px; align-items: center; max-width: 640px;
+}
+.team-avatar { width: 72px; height: 72px; border-radius: 50%; background: var(--gl); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--gd); flex-shrink: 0; }
+.team-name  { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.team-title { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gl); margin-bottom: 10px; }
+.team-bio   { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+/* ══════════════ SERVICES PAGE ══════════════ */
+.services-hero { background: var(--gd); padding: 80px 48px; }
+.services-detail { display: flex; flex-direction: column; gap: 40px; }
+.service-row {
+  display: grid; grid-template-columns: 80px 1fr; gap: 28px; align-items: start;
+  padding: 32px; background: var(--cream); border-radius: 14px;
+  border: 1px solid rgba(27,67,50,0.08);
+}
+.service-row-icon { width: 60px; height: 60px; border-radius: 12px; background: var(--gd); display: flex; align-items: center; justify-content: center; font-size: 26px; }
+.service-row-title { font-family: var(--serif); font-size: 20px; font-weight: 700; color: var(--gd); margin-bottom: 8px; }
+.service-row-desc  { font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 14px; }
+.service-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.service-tag { background: var(--gp); color: var(--gm); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 4px; }
+
+.compliance-box { background: var(--gd); border-radius: 14px; padding: 40px; margin-top: 48px; }
+.compliance-title { font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+.compliance-desc  { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; max-width: 600px; }
+
+/* ══════════════ CONTACT PAGE ══════════════ */
+.contact-hero { background: var(--gd); padding: 80px 48px; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.contact-info { display: flex; flex-direction: column; gap: 20px; }
+.contact-item { display: flex; gap: 16px; align-items: flex-start; }
+.contact-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--gp); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+.contact-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ga); margin-bottom: 4px; }
+.contact-value { font-size: 15px; font-weight: 500; color: var(--gd); }
+.contact-sub   { font-size: 12px; color: var(--gray); margin-top: 2px; }
+
+.contact-form { background: var(--cream); border-radius: 16px; padding: 36px; }
+.form-title { font-family: var(--serif); font-size: 22px; font-weight: 700; color: var(--gd); margin-bottom: 24px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-label { font-size: 12px; font-weight: 600; color: var(--gd); letter-spacing: 0.04em; }
+.form-input, .form-select, .form-textarea {
+  font-family: var(--sans); font-size: 13px; color: var(--dark);
+  background: var(--white); border: 1px solid rgba(27,67,50,0.2);
+  border-radius: 7px; padding: 10px 14px; outline: none;
+  transition: border-color 0.2s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--ga); }
+.form-textarea { resize: vertical; min-height: 100px; }
+.form-submit {
+  width: 100%; font-family: var(--sans); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.05em; padding: 14px; border-radius: 7px;
+  background: var(--gd); color: var(--white); border: none; cursor: pointer;
+  transition: background 0.2s;
+}
+.form-submit:hover { background: var(--gm); }
+.form-note { font-size: 11px; color: var(--gray); text-align: center; margin-top: 10px; }
+
+/* FOOTER */
+footer {
+  background: var(--dark); padding: 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 20px;
+}
+.footer-logo { display: flex; align-items: center; gap: 10px; }
+.footer-logo-circle { width: 30px; height: 30px; border-radius: 50%; background: var(--ga); display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: var(--white); }
+.footer-logo-text { font-family: var(--serif); font-size: 13px; color: rgba(255,255,255,0.7); }
+.footer-links { display: flex; gap: 24px; }
+.footer-link { font-size: 12px; color: rgba(255,255,255,0.45); cursor: pointer; }
+.footer-link:hover { color: rgba(255,255,255,0.8); }
+.footer-copy { font-size: 11px; color: rgba(255,255,255,0.3); }
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero, .section, .about-hero, .services-hero, .contact-hero, .cta-band { padding-left: 20px; padding-right: 20px; }
+  .why-grid, .mission-grid, .contact-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { padding: 32px 20px; flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo" onclick="showPage(&#39;home&#39;)">
+    <div class="nav-logo-circle">MCL</div>
+    <span class="nav-logo-text">MediCloth Linen Service</span>
+  </div>
+  <div class="nav-links">
+    <button class="nav-link active" onclick="showPage(&#39;home&#39;)">Home</button>
+    <button class="nav-link" onclick="showPage(&#39;about&#39;)">About</button>
+    <button class="nav-link" onclick="showPage(&#39;services&#39;)">Services</button>
+    <button class="nav-link" onclick="showPage(&#39;contact&#39;)">Contact</button>
+  </div>
+  <button class="nav-cta" onclick="showPage(&#39;contact&#39;)">Book Free Audit</button>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HOME
+══════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <div class="hero">
+    <!-- MRI Room Illustration -->
+    <svg class="hero-bg-scan" viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" style="width:580px;height:480px;right:-10px;top:50%;transform:translateY(-50%)">
+
+      <!-- Room floor perspective -->
+      <path d="M60,380 L460,380 L520,420 L0,420Z" fill="rgba(116,198,157,0.08)"></path>
+      <!-- Room back wall -->
+      <rect x="60" y="60" width="400" height="320" fill="rgba(116,198,157,0.04)" rx="2"></rect>
+      <!-- Wall panels -->
+      <rect x="60" y="60" width="400" height="4" fill="rgba(116,198,157,0.3)"></rect>
+      <line x1="60" y1="60" x2="60" y2="380" stroke="rgba(116,198,157,0.25)" stroke-width="2"></line>
+      <line x1="460" y1="60" x2="460" y2="380" stroke="rgba(116,198,157,0.25)" stroke-width="2"></line>
+
+      <!-- MRI MACHINE — main tunnel body -->
+      <rect x="130" y="150" width="220" height="160" rx="80" fill="none" stroke="#74C69D" stroke-width="3"></rect>
+      <!-- MRI tunnel inner ring -->
+      <rect x="148" y="168" width="184" height="124" rx="62" fill="none" stroke="#74C69D" stroke-width="1.5" opacity="0.6"></rect>
+      <!-- MRI tunnel opening glow rings -->
+      <ellipse cx="240" cy="230" rx="52" ry="62" fill="none" stroke="#74C69D" stroke-width="1" opacity="0.4"></ellipse>
+      <ellipse cx="240" cy="230" rx="42" ry="52" fill="none" stroke="#74C69D" stroke-width="1.5" opacity="0.6"></ellipse>
+      <ellipse cx="240" cy="230" rx="30" ry="38" fill="rgba(116,198,157,0.06)" stroke="#74C69D" stroke-width="1" opacity="0.8"></ellipse>
+      <!-- MRI machine top branding line -->
+      <rect x="190" y="155" width="100" height="6" rx="3" fill="rgba(116,198,157,0.4)"></rect>
+      <!-- MRI machine base/pedestal -->
+      <rect x="160" y="308" width="160" height="14" rx="4" fill="none" stroke="#74C69D" stroke-width="1.5" opacity="0.6"></rect>
+      <rect x="175" y="320" width="130" height="8" rx="3" fill="none" stroke="#74C69D" stroke-width="1" opacity="0.4"></rect>
+
+      <!-- PATIENT TABLE extending from machine -->
+      <rect x="330" y="218" width="120" height="24" rx="6" fill="none" stroke="#74C69D" stroke-width="2"></rect>
+      <!-- Table leg -->
+      <rect x="410" y="242" width="10" height="40" rx="2" fill="none" stroke="#74C69D" stroke-width="1.5" opacity="0.6"></rect>
+      <rect x="400" y="278" width="30" height="5" rx="2" fill="none" stroke="#74C69D" stroke-width="1" opacity="0.5"></rect>
+
+      <!-- PATIENT lying on table — simplified silhouette -->
+      <!-- Body -->
+      <rect x="340" y="208" width="90" height="14" rx="7" fill="rgba(116,198,157,0.15)" stroke="#74C69D" stroke-width="1.5"></rect>
+      <!-- Head -->
+      <ellipse cx="345" cy="215" rx="12" ry="10" fill="rgba(116,198,157,0.1)" stroke="#74C69D" stroke-width="1.5"></ellipse>
+      <!-- Linen/blanket draped over patient -->
+      <path d="M340,215 C355,222 375,222 430,218 L430,222 C375,226 355,226 340,220Z" fill="rgba(116,198,157,0.2)" stroke="#74C69D" stroke-width="1" opacity="0.8"></path>
+
+      <!-- TECHNICIAN — standing at console left side -->
+      <!-- Body -->
+      <rect x="98" y="222" width="24" height="60" rx="6" fill="rgba(116,198,157,0.1)" stroke="#74C69D" stroke-width="1.8"></rect>
+      <!-- Head -->
+      <circle cx="110" cy="212" r="14" fill="rgba(116,198,157,0.1)" stroke="#74C69D" stroke-width="1.8"></circle>
+      <!-- Lab coat detail -->
+      <line x1="110" y1="228" x2="110" y2="275" stroke="#74C69D" stroke-width="1" opacity="0.5"></line>
+      <!-- Arm extended toward console -->
+      <path d="M98,245 C88,240 78,238 72,240" fill="none" stroke="#74C69D" stroke-width="1.8"></path>
+
+      <!-- CONTROL CONSOLE -->
+      <rect x="60" y="240" width="72" height="48" rx="6" fill="rgba(116,198,157,0.08)" stroke="#74C69D" stroke-width="2"></rect>
+      <!-- Screen on console -->
+      <rect x="65" y="245" width="62" height="30" rx="3" fill="rgba(116,198,157,0.12)" stroke="#74C69D" stroke-width="1"></rect>
+      <!-- Screen content lines -->
+      <line x1="70" y1="253" x2="122" y2="253" stroke="#74C69D" stroke-width="0.8" opacity="0.7"></line>
+      <line x1="70" y1="259" x2="115" y2="259" stroke="#74C69D" stroke-width="0.8" opacity="0.5"></line>
+      <line x1="70" y1="265" x2="118" y2="265" stroke="#74C69D" stroke-width="0.8" opacity="0.5"></line>
+      <!-- Console buttons -->
+      <circle cx="72" cy="280" r="3" fill="rgba(116,198,157,0.4)" stroke="#74C69D" stroke-width="1"></circle>
+      <circle cx="82" cy="280" r="3" fill="rgba(116,198,157,0.4)" stroke="#74C69D" stroke-width="1"></circle>
+      <circle cx="92" cy="280" r="3" fill="rgba(116,198,157,0.6)" stroke="#74C69D" stroke-width="1"></circle>
+      <!-- Console legs -->
+      <line x1="75" y1="288" x2="75" y2="310" stroke="#74C69D" stroke-width="1.5" opacity="0.5"></line>
+      <line x1="117" y1="288" x2="117" y2="310" stroke="#74C69D" stroke-width="1.5" opacity="0.5"></line>
+
+      <!-- OBSERVATION WINDOW on right wall -->
+      <rect x="380" y="100" width="70" height="60" rx="4" fill="rgba(116,198,157,0.06)" stroke="#74C69D" stroke-width="2"></rect>
+      <rect x="385" y="105" width="60" height="50" rx="2" fill="rgba(116,198,157,0.04)" stroke="#74C69D" stroke-width="1" opacity="0.5"></rect>
+      <!-- Window cross bar -->
+      <line x1="415" y1="105" x2="415" y2="155" stroke="#74C69D" stroke-width="1" opacity="0.4"></line>
+      <line x1="385" y1="130" x2="445" y2="130" stroke="#74C69D" stroke-width="1" opacity="0.4"></line>
+
+      <!-- LINEN CART on far right -->
+      <rect x="428" y="240" width="36" height="60" rx="4" fill="rgba(116,198,157,0.08)" stroke="#74C69D" stroke-width="1.8"></rect>
+      <!-- Shelf lines -->
+      <line x1="428" y1="262" x2="464" y2="262" stroke="#74C69D" stroke-width="1" opacity="0.6"></line>
+      <line x1="428" y1="282" x2="464" y2="282" stroke="#74C69D" stroke-width="1" opacity="0.6"></line>
+      <!-- Linen stacks on cart -->
+      <rect x="432" y="246" width="28" height="14" rx="2" fill="rgba(116,198,157,0.2)" stroke="#74C69D" stroke-width="1"></rect>
+      <rect x="432" y="266" width="28" height="12" rx="2" fill="rgba(116,198,157,0.2)" stroke="#74C69D" stroke-width="1"></rect>
+      <rect x="432" y="286" width="28" height="10" rx="2" fill="rgba(116,198,157,0.15)" stroke="#74C69D" stroke-width="1"></rect>
+      <!-- Cart wheels -->
+      <circle cx="434" cy="304" r="4" fill="none" stroke="#74C69D" stroke-width="1.5"></circle>
+      <circle cx="460" cy="304" r="4" fill="none" stroke="#74C69D" stroke-width="1.5"></circle>
+
+      <!-- Ceiling light fixture above MRI -->
+      <rect x="210" y="62" width="60" height="8" rx="4" fill="rgba(116,198,157,0.3)" stroke="#74C69D" stroke-width="1.5"></rect>
+      <line x1="240" y1="70" x2="240" y2="152" stroke="#74C69D" stroke-width="0.8" opacity="0.2" stroke-dasharray="4,4"></line>
+
+      <!-- Floor perspective lines -->
+      <line x1="60" y1="380" x2="240" y2="310" stroke="#74C69D" stroke-width="0.5" opacity="0.2"></line>
+      <line x1="460" y1="380" x2="240" y2="310" stroke="#74C69D" stroke-width="0.5" opacity="0.2"></line>
+
+      <!-- MRI label tag -->
+      <rect x="168" y="275" width="50" height="16" rx="3" fill="rgba(116,198,157,0.15)" stroke="#74C69D" stroke-width="1" opacity="0.8"></rect>
+      <text x="193" y="287" font-size="8" fill="#74C69D" text-anchor="middle" font-family="DM Sans,sans-serif" font-weight="600" opacity="0.9">3.0T MRI</text>
+    </svg>
+    <div class="hero-inner">
+      <div class="hero-eyebrow">Non-BBP Compliant Linen Specialists</div>
+      <h1 class="hero-headline">The Smart Linen Choice for <span>Radiology Centers</span></h1>
+      <p class="hero-sub">Purpose-built non-BBP linen for MRI, CT, X-ray and ultrasound suites across Southern California. Meet every applicable standard — at a fraction of the cost.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="showPage(&#39;contact&#39;)">Book Your Free Linen Audit</button>
+        <button class="btn-outline" onclick="showPage(&#39;services&#39;)">View Services</button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-n">15–20%</div>
+          <div class="hero-stat-l">Average cost savings vs BBP</div>
+        </div>
+        <div>
+          <div class="hero-stat-n">4</div>
+          <div class="hero-stat-l">SoCal counties served</div>
+        </div>
+        <div>
+          <div class="hero-stat-n">2 Wks</div>
+          <div class="hero-stat-l">Risk-free pilot — you pay nothing</div>
+        </div>
+        <div>
+          <div class="hero-stat-n">Same Day</div>
+          <div class="hero-stat-l">Response guaranteed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="strip">
+    <div class="strip-item">✓ Los Angeles</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item">✓ Orange County</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item">✓ San Diego</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item">✓ Riverside</div>
+    <div class="strip-dot"></div>
+    <div class="strip-item">✓ San Fernando Valley</div>
+  </div>
+
+  <div class="section" style="background: var(--white);">
+    <div class="section-inner">
+      <div class="section-eyebrow">What We Offer</div>
+      <h2 class="section-title">Linen Built for Imaging Centers</h2>
+      <p class="section-sub">Everything your radiology facility needs — delivered on schedule, priced fairly, backed by compliance documentation.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🩺</div>
+          <div class="service-title">Patient Linen</div>
+          <div class="service-desc">Gowns, scrubs, drapes, table covers, pillow covers, sheets and blankets — all non-BBP compliant and sized for imaging environments.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">👔</div>
+          <div class="service-title">Staff Uniforms</div>
+          <div class="service-desc">Lab coats, uniforms and scrubs for your clinical and administrative staff. Consistent, clean, professionally laundered.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚚</div>
+          <div class="service-title">Scheduled Delivery</div>
+          <div class="service-desc">We match your exact par levels and delivery frequency. No disruptions, no surprises — your linen is there when you need it.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <div class="service-title">Compliance Documentation</div>
+          <div class="service-desc">Every delivery comes with full compliance records. Be inspection-ready at all times with zero extra effort on your part.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="background: var(--cream);">
+    <div class="section-inner">
+      <div class="why-grid">
+        <div>
+          <div class="section-eyebrow">Why MediCloth?</div>
+          <h2 class="section-title">What Sets Us Apart</h2>
+          <p class="section-sub">We serve radiology and imaging centers exclusively — this is all we do, and we do it better than anyone else in Southern California.</p>
+          <div class="why-list">
+            <div class="why-item">
+              <div class="why-num">1</div>
+              <div><div class="why-title">Radiology-Only Focus</div><div class="why-desc">We don't serve hospitals, hotels or general laundry. Every client we have is an imaging center — which means better service and faster problem-solving.</div></div>
+            </div>
+            <div class="why-item">
+              <div class="why-num">2</div>
+              <div><div class="why-title">Fixed, Transparent Pricing</div><div class="why-desc">No surprise invoices. You know exactly what you're paying before the bill arrives — locked in for the length of your contract.</div></div>
+            </div>
+            <div class="why-item">
+              <div class="why-num">3</div>
+              <div><div class="why-title">Local &amp; Responsive</div><div class="why-desc">Southern California based. Real people, same-day response. No call centers, no hold music, no runaround.</div></div>
+            </div>
+            <div class="why-item">
+              <div class="why-num">4</div>
+              <div><div class="why-title">Zero-Disruption Onboarding</div><div class="why-desc">We match your existing par levels and schedule from day one. Your staff won't notice the switch — except on the invoice.</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="why-visual">
+          <div class="why-stat-card">
+            <div class="why-stat-n">15–20%</div>
+            <div class="why-stat-l">Average savings vs current BBP vendors</div>
+          </div>
+          <div class="why-stat-card">
+            <div class="why-stat-n">100%</div>
+            <div class="why-stat-l">Compliant with standards for non-BBP diagnostic imaging</div>
+          </div>
+          <div class="why-stat-card">
+            <div class="why-stat-n">2 Weeks</div>
+            <div class="why-stat-l">Risk-free pilot — no payment, no contract required</div>
+          </div>
+          <div style="margin-top: 8px; padding: 20px 24px; background: rgba(116,198,157,0.12); border-radius: 10px; border: 1px solid rgba(116,198,157,0.2);">
+            <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gl); margin-bottom: 6px;">Compliance Guarantee</div>
+            <div style="font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6;">All linen meets standards required for non-BBP diagnostic imaging environments.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="background: var(--white);">
+    <div class="section-inner">
+      <div class="section-eyebrow">Current Offers</div>
+      <h2 class="section-title">Start Saving Today</h2>
+      <p class="section-sub">No risk. No long commitments required to get started. Pick the offer that fits your situation.</p>
+      <div class="offers-grid">
+        <div class="offer-card featured">
+          <div class="offer-badge">★ Most Popular</div>
+          <div class="offer-title">Risk-Free 2 Week Pilot</div>
+          <div class="offer-desc">Try our full linen program for 2 weeks. You pay nothing. No contract, no commitment — Just Results!</div>
+        </div>
+        <div class="offer-card">
+          <div class="offer-badge">Switch &amp; Save</div>
+          <div class="offer-title">Guaranteed 15% Savings</div>
+          <div class="offer-desc">Send us your current linen invoice. We'll match your service and cut your cost by at least 15% — or your first month is free.</div>
+        </div>
+        <div class="offer-card">
+          <div class="offer-badge">Annual Contract</div>
+          <div class="offer-title">Up to 20% Off Annual Rate</div>
+          <div class="offer-desc">36-month: 15% off. 72-month: 20% off. Price-locked with no mid-year increases.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <div class="cta-band-title">Book Your Free Linen Audit</div>
+    <div class="cta-band-sub">We'll walk your facility, review your current setup, and show you exactly where you can save — at no cost, no commitment.</div>
+    <div class="cta-band-phone">(818) 903-0846</div>
+    <div class="cta-band-email">info@mediclothlinen.com</div>
+    <div style="margin-top: 28px;">
+      <button class="btn-primary" onclick="showPage(&#39;contact&#39;)">Get In Touch</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo">
+      <div class="footer-logo-circle">MCL</div>
+      <span class="footer-logo-text">MediCloth Linen Service</span>
+    </div>
+    <div class="footer-links">
+      <span class="footer-link" onclick="showPage(&#39;home&#39;)">Home</span>
+      <span class="footer-link" onclick="showPage(&#39;about&#39;)">About</span>
+      <span class="footer-link" onclick="showPage(&#39;services&#39;)">Services</span>
+      <span class="footer-link" onclick="showPage(&#39;contact&#39;)">Contact</span>
+    </div>
+    <div class="footer-copy">© 2025 MediCloth Linen Service. All rights reserved.</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<div id="page-about" class="page">
+  <div class="about-hero">
+    <div class="about-hero-inner">
+      <div class="page-hero-eyebrow">Our Story</div>
+      <h1 class="page-hero-title">Built for Radiology. Focused on Compliance.</h1>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-inner">
+      <div class="mission-grid">
+        <div>
+          <div class="section-eyebrow">Who We Are</div>
+          <h2 class="section-title">A Linen Company That Understands Imaging</h2>
+          <div class="mission-body">
+            <p>MediCloth Linen Service was founded with a single focus: serve radiology and diagnostic imaging centers with the right linen at the right price — not oversell them on heavy BBP-rated products designed for operating rooms.</p>
+            <p>We recognized that most imaging centers were being charged for full blood-borne pathogen linen protocols they didn't need. Non-invasive procedures don't require surgical-grade linen. We built a program around that simple truth.</p>
+            <p>Today we serve independent imaging centers, radiology groups, and outpatient imaging suites across Los Angeles, Orange County, San Diego and Riverside — and we're expanding. Our clients save an average of 15–20% on linen costs while meeting every applicable compliance standard.</p>
+          </div>
+          <div style="margin-top: 32px;">
+            <button class="btn-primary" onclick="showPage(&#39;contact&#39;)" style="background: var(--gd); color: var(--white);">Talk To Us</button>
+          </div>
+        </div>
+        <div>
+          <div class="section-eyebrow" style="margin-bottom: 20px;">Our Values</div>
+          <div class="value-list">
+            <div class="value-item">
+              <div class="value-icon">🎯</div>
+              <div><div class="value-title">Specialization</div><div class="value-desc">We serve one industry. That focus means we understand your workflow, your compliance requirements, and your pressures better than a generalist vendor ever could.</div></div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🤝</div>
+              <div><div class="value-title">Transparency</div><div class="value-desc">Fixed pricing, clear contracts, honest conversations. You'll never receive an invoice that surprises you.</div></div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">⚡</div>
+              <div><div class="value-title">Responsiveness</div><div class="value-desc">Same-day response, every time. We're local, we're reachable, and we take service seriously.</div></div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">📋</div>
+              <div><div class="value-title">Compliance First</div><div class="value-desc">Every program we build comes with full documentation. Be inspection-ready without lifting a finger.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 64px;">
+        <div class="section-eyebrow">Leadership</div>
+        <h2 class="section-title" style="margin-bottom: 32px;">Meet Our Team</h2>
+        <div class="team-card">
+          <div class="team-avatar">UK</div>
+          <div>
+            <div class="team-name">Umer S. Khan</div>
+            <div class="team-title">VP Marketing &amp; Sales</div>
+            <div class="team-bio">Umer leads business development and client relationships for MediCloth, bringing deep knowledge of the Southern California imaging market and a direct, solutions-first approach to every prospect conversation.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-band">
+    <div class="cta-band-title">Ready to Make the Switch?</div>
+    <div class="cta-band-sub">Start with a free linen audit — no obligation, no commitment.</div>
+    <div style="margin-top: 28px;"><button class="btn-primary" onclick="showPage(&#39;contact&#39;)">Book Free Audit</button></div>
+  </div>
+
+  <footer>
+    <div class="footer-logo"><div class="footer-logo-circle">MCL</div><span class="footer-logo-text">MediCloth Linen Service</span></div>
+    <div class="footer-links">
+      <span class="footer-link" onclick="showPage(&#39;home&#39;)">Home</span>
+      <span class="footer-link" onclick="showPage(&#39;about&#39;)">About</span>
+      <span class="footer-link" onclick="showPage(&#39;services&#39;)">Services</span>
+      <span class="footer-link" onclick="showPage(&#39;contact&#39;)">Contact</span>
+    </div>
+    <div class="footer-copy">© 2025 MediCloth Linen Service. All rights reserved.</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     SERVICES
+══════════════════════════════════════ -->
+<div id="page-services" class="page">
+  <div class="services-hero">
+    <div class="about-hero-inner">
+      <div class="page-hero-eyebrow">What We Provide</div>
+      <h1 class="page-hero-title">Complete Linen Programs for Imaging Centers</h1>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-inner">
+      <div class="section-eyebrow">Our Services</div>
+      <h2 class="section-title">Everything Your Facility Needs</h2>
+      <p class="section-sub">Tailored non-BBP linen programs designed around your par levels, schedule, and compliance requirements.</p>
+
+      <div class="services-detail">
+        <div class="service-row">
+          <div class="service-row-icon">🩺</div>
+          <div>
+            <div class="service-row-title">Patient Linen</div>
+            <div class="service-row-desc">Our core offering — everything that touches your patient during imaging. Designed for comfort, hygiene, and non-BBP compliance in MRI, CT, X-ray and ultrasound environments.</div>
+            <div class="service-tags">
+              <span class="service-tag">Patient Gowns</span>
+              <span class="service-tag">Scrubs</span>
+              <span class="service-tag">Drapes</span>
+              <span class="service-tag">Table Covers</span>
+              <span class="service-tag">Pillow Covers</span>
+              <span class="service-tag">Sheets</span>
+              <span class="service-tag">Blankets</span>
+              <span class="service-tag">Positioning Pads</span>
+            </div>
+          </div>
+        </div>
+        <div class="service-row">
+          <div class="service-row-icon">👔</div>
+          <div>
+            <div class="service-row-title">Staff Uniforms &amp; Lab Coats</div>
+            <div class="service-row-desc">Professional uniforms and lab coats for clinical and administrative staff. Consistent presentation, professionally laundered on your schedule.</div>
+            <div class="service-tags">
+              <span class="service-tag">Lab Coats</span>
+              <span class="service-tag">Staff Uniforms</span>
+              <span class="service-tag">Staff Scrubs</span>
+            </div>
+          </div>
+        </div>
+        <div class="service-row">
+          <div class="service-row-icon">🚚</div>
+          <div>
+            <div class="service-row-title">Scheduled Delivery Program</div>
+            <div class="service-row-desc">We build your delivery schedule around your volume and par levels — not ours. Same-day support if you ever run short. Reliable delivery across all 4 Southern California counties.</div>
+            <div class="service-tags">
+              <span class="service-tag">Par-Level Matching</span>
+              <span class="service-tag">Flexible Schedule</span>
+              <span class="service-tag">Same-Day Support</span>
+              <span class="service-tag">LA · OC · SD · Riverside</span>
+            </div>
+          </div>
+        </div>
+        <div class="service-row">
+          <div class="service-row-icon">📋</div>
+          <div>
+            <div class="service-row-title">Compliance Documentation</div>
+            <div class="service-row-desc">Every delivery includes full documentation confirming your linen meets standards required for non-BBP diagnostic imaging environments. Stay inspection-ready with zero extra effort.</div>
+            <div class="service-tags">
+              <span class="service-tag">Delivery Records</span>
+              <span class="service-tag">Compliance Certificates</span>
+              <span class="service-tag">Inspection-Ready</span>
+            </div>
+          </div>
+        </div>
+        <div class="service-row">
+          <div class="service-row-icon">💰</div>
+          <div>
+            <div class="service-row-title">Fixed &amp; Informed Invoicing</div>
+            <div class="service-row-desc">No surprise charges. Your rate is locked in at contract signing. Every invoice is clear, itemized, and consistent — month after month.</div>
+            <div class="service-tags">
+              <span class="service-tag">Price-Lock Guarantee</span>
+              <span class="service-tag">Itemized Billing</span>
+              <span class="service-tag">No Mid-Year Increases</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="compliance-box">
+        <div class="compliance-title">Compliance Guarantee</div>
+        <div class="compliance-desc">All MediCloth linen meets the standards required for non-BBP diagnostic imaging environments. We provide full documentation with every delivery so your facility is always inspection-ready. Questions about compliance? Call us directly — same-day response guaranteed.</div>
+        <div style="margin-top: 24px;"><button class="btn-primary" onclick="showPage(&#39;contact&#39;)">Ask Us About Compliance</button></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo"><div class="footer-logo-circle">MCL</div><span class="footer-logo-text">MediCloth Linen Service</span></div>
+    <div class="footer-links">
+      <span class="footer-link" onclick="showPage(&#39;home&#39;)">Home</span>
+      <span class="footer-link" onclick="showPage(&#39;about&#39;)">About</span>
+      <span class="footer-link" onclick="showPage(&#39;services&#39;)">Services</span>
+      <span class="footer-link" onclick="showPage(&#39;contact&#39;)">Contact</span>
+    </div>
+    <div class="footer-copy">© 2025 MediCloth Linen Service. All rights reserved.</div>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <div class="contact-hero">
+    <div class="about-hero-inner">
+      <div class="page-hero-eyebrow">Get In Touch</div>
+      <h1 class="page-hero-title">Book Your Free Linen Audit</h1>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-inner">
+      <div class="contact-grid">
+        <div>
+          <div class="section-eyebrow">Contact</div>
+          <h2 class="section-title" style="margin-bottom: 32px;">We'd Love to Hear From You</h2>
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div>
+                <div class="contact-label">Phone</div>
+                <div class="contact-value">(818) 903-0846</div>
+                <div class="contact-sub">Same-day response guaranteed</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div>
+                <div class="contact-label">Email</div>
+                <div class="contact-value">info@mediclothlinen.com</div>
+                <div class="contact-sub">We reply within a few hours</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🌐</div>
+              <div>
+                <div class="contact-label">Website</div>
+                <div class="contact-value">www.mediclothlinen.com</div>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div>
+                <div class="contact-label">Service Area</div>
+                <div class="contact-value">Southern California</div>
+                <div class="contact-sub">Los Angeles · Orange · San Diego · Riverside</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 40px; background: var(--gp); border-radius: 12px; padding: 24px;">
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gm); margin-bottom: 8px;">What Happens Next</div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; gap: 12px; font-size: 13px; color: var(--gd);">
+                <span style="font-weight: 700; color: var(--ga);">1.</span> We call you within 24 hours to schedule your free audit
+              </div>
+              <div style="display: flex; gap: 12px; font-size: 13px; color: var(--gd);">
+                <span style="font-weight: 700; color: var(--ga);">2.</span> We walk your facility and review your current linen program
+              </div>
+              <div style="display: flex; gap: 12px; font-size: 13px; color: var(--gd);">
+                <span style="font-weight: 700; color: var(--ga);">3.</span> We present a custom proposal with your projected savings
+              </div>
+              <div style="display: flex; gap: 12px; font-size: 13px; color: var(--gd);">
+                <span style="font-weight: 700; color: var(--ga);">4.</span> You decide — no pressure, no commitment required
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <div class="form-title">Send Us a Message</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input class="form-input" type="text" placeholder="Jane">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input class="form-input" type="text" placeholder="Smith">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Facility / Center Name</label>
+            <input class="form-input" type="text" placeholder="Pacific Imaging Center">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Role</label>
+            <select class="form-select">
+              <option value="">Select your role...</option>
+              <option>Practice Manager / Administrator</option>
+              <option>Director of Imaging Services</option>
+              <option>Materials / Supply Manager</option>
+              <option>Owner / Physician</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Phone</label>
+              <input class="form-input" type="tel" placeholder="(555) 000-0000">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input class="form-input" type="email" placeholder="you@facility.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">What Can We Help With?</label>
+            <select class="form-select">
+              <option value="">Select an option...</option>
+              <option>Book a Free Linen Audit</option>
+              <option>Get a Cost Comparison</option>
+              <option>Learn About the 2-Week Pilot</option>
+              <option>Annual Contract Pricing</option>
+              <option>General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message (Optional)</label>
+            <textarea class="form-textarea" placeholder="Tell us about your facility or any questions you have..."></textarea>
+          </div>
+          <button class="form-submit" onclick="handleSubmit()">Send Message →</button>
+          <div class="form-note">We respond within a few hours. Same-day response guaranteed.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo"><div class="footer-logo-circle">MCL</div><span class="footer-logo-text">MediCloth Linen Service</span></div>
+    <div class="footer-links">
+      <span class="footer-link" onclick="showPage(&#39;home&#39;)">Home</span>
+      <span class="footer-link" onclick="showPage(&#39;about&#39;)">About</span>
+      <span class="footer-link" onclick="showPage(&#39;services&#39;)">Services</span>
+      <span class="footer-link" onclick="showPage(&#39;contact&#39;)">Contact</span>
+    </div>
+    <div class="footer-copy">© 2025 MediCloth Linen Service. All rights reserved.</div>
+  </footer>
+</div>
+
+<script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+  const links = document.querySelectorAll('.nav-link');
+  links.forEach(l => { if (l.textContent.toLowerCase().includes(id === 'home' ? 'home' : id)) l.classList.add('active'); });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function handleSubmit() {
+  const btn = document.querySelector('.form-submit');
+  btn.textContent = '✓ Message Sent — We\'ll be in touch shortly!';
+  btn.style.background = 'var(--ga)';
+  btn.disabled = true;
+}
+</script>
+
+
+
+</body></html>
